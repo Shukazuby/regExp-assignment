@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegEx Assignment</title>
+</head>
+<body>
+    <script>
+        // Exercise 1
+
+//1.  car and cat
+
+        let ca = /ca/;
+        let result = ca.test("car", "cat")
+        console.log(result)
+        console.log("________________________Num 1")
+
+
+// 2. pop and prop
+
+        let proper = /[proper]/;
+        let result2 = proper.test("pop", "prop")
+        console.log(result2)
+        console.log("________________________Num 2")
+
+
+// 3. ferret, ferry, and ferrari
+
+        let ferry = /ferr/;
+        let result3 = ferry.test("ferret", "ferry", "ferrari")
+        console.log(result3)
+        console.log("________________________Num 3")
+
+// 4. Any word ending in ious
+
+        let pious = /ious/;
+        let result4 = pious.test( "religious", "delicious", "humour")
+        console.log(result4)
+        console.log("________________________Num 4")
+
+// 5. A whitespace character followed by a period, comma, colon, or semicolon
+
+        let punctuation =[" Look at her.",
+                    "She's beautiful,",
+                    "I he loves her just because of that",
+                    "He will never look another way  ",
+                    "Look at them closely;",
+                    "They look adorable:"
+                ]
+        
+        let result5 = /\s[.,;:]/ig
+        console.log(result5.test(punctuation))
+
+        console.log("________________________Num 5")
+  
+
+// 6. A word longer than six letters
+
+        // let sevenWords =/\b\w{7,}\b/
+        let result6 = /\b\w{7,}\b/.test( "hand, control, men, tray")
+        console.log(result6)
+        console.log("________________________Num 6")
+
+ // 7. A word without the letter e (or E)
+        let letterE = "Mat, peg, hand, Employee, mourn, breath"
+        let result7 = /\b[^\WeE]+\b/i
+        console.log(result7.test(letterE))
+
+        console.log("________________________Num 7")
+       
+
+    // Exercise 2
+    // replacing all the dialogue quotes with double quotes,
+    // while keeping the single quotes used in contractions like aren’t.
+
+
+        let story = 
+                    `Rain poured relentlessly, drenching the city. 
+                    A stranger offered a tattered umbrella. 
+                    Two souls found shelter under its worn canopy. 
+                    As they walked together, the rain seemed gentler, and their conversation brighter.
+                    Strange A asked 'Where are you headed?'. 'Across the street'- stranger B answered 
+                    pointing a finger to the tree directly opposite.`
+        let result8 = /'([^']+)'/igm;
+        let story2 = story.replace(result8, '"$1"')
+        console.log(story2)
+
+
+        console.log("________________________Exercise 2")
+
+
+    // Exercise 3
+    // Write an expression that matches only JavaScript-style numbers.
+        let Numbers= [
+        "231",
+        "+0.1",
+        "2.",
+        "-31",
+        ];
+
+        let numRegExp = /^[+\-]?\d+(\.\d*)?([eE][+\-]?\d+)?$/;
+        Numbers.forEach((num) => {
+        let result9 = numRegExp.test(num);
+        console.log(`"${num}" is a valid JavaScript number: ${result9}`);
+        });
+
+        console.log("________________________Exercise 3")
+
+    </script>
+</body>
+</html>
